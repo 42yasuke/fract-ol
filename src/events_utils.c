@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 11:20:11 by jose              #+#    #+#             */
-/*   Updated: 2023/03/20 01:49:51 by jose             ###   ########.fr       */
+/*   Updated: 2023/03/20 13:48:58 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	ft_zoom(t_win *win, int x, int y)
 	win->zoom = win->zoom / 2.0 + win->zoom;
 	win->x = win->x + (1.0 / win->zoom) * ((double)CENTER_X / 2.0);
 	win->y = win->y - (1.0 / win->zoom) * ((double)CENTER_Y / 2.0);
+	win->iteration_max = win->iteration_max + 5;
 }
 
 void	ft_dezoom(t_win *win, int x, int y)
@@ -50,4 +51,5 @@ void	ft_dezoom(t_win *win, int x, int y)
 	win->x = win->x - (1.0 / win->zoom) * ((double)CENTER_X / 2.0);
 	win->y = win->y + (1.0 / win->zoom) * ((double)CENTER_Y / 2.0);
 	win->zoom = win->zoom / 1.5;
+	win->iteration_max = win->iteration_max - 5;
 }

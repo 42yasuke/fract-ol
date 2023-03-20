@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:35:59 by jose              #+#    #+#             */
-/*   Updated: 2023/03/19 18:07:51 by jose             ###   ########.fr       */
+/*   Updated: 2023/03/20 14:02:50 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,12 @@ static int	ft_calcul(t_win *win, int coord)
 	double	z_r;
 	double	z_i;
 	double	tmp;
+	int		color;
 
 	i = 0;
 	z_r = 0;
 	z_i = 0;
+	color = BLACK;
 	while (i < win->iteration_max)
 	{
 		tmp = z_r;
@@ -47,10 +49,9 @@ static int	ft_calcul(t_win *win, int coord)
 		if (z_r * z_r + z_i * z_i >= 4)
 			break ;
 		i++;
+		color += 10;
 	}
-	if (i == win->iteration_max)
-		return (BLACK);
-	return (WHITE);
+	return (color);
 }
 
 static void	ft_draw_pixel(t_win *win, int coord)
