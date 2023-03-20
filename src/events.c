@@ -1,0 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   events.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/23 19:01:55 by jose              #+#    #+#             */
+/*   Updated: 2023/03/19 21:28:31 by jose             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "fractol.h"
+
+int	ft_close_win(t_win *window)
+{
+	return (ft_free_window(window), EXIT_SUCCESS);
+}
+
+int	ft_event_manager(int keycode, t_win *win)
+{
+	if (keycode == KEY_ESC)
+		return (ft_close_win(win));
+	return (EXIT_SUCCESS);
+}
+
+int	ft_event_manager2(int button, int x, int y, t_win *win)
+{
+	if (button == ON_MOUSEDOWN)
+		ft_zoom(win, x, y);
+	else if (button == ON_MOUSEUP)
+		ft_dezoom(win, x, y);
+	return (EXIT_SUCCESS);
+}
