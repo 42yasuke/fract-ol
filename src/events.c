@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jralph <jralph@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 19:01:55 by jose              #+#    #+#             */
-/*   Updated: 2023/03/21 03:39:39 by jose             ###   ########.fr       */
+/*   Updated: 2023/03/21 17:31:02 by jralph           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ int	ft_event_manager2(int button, int x, int y, t_win *win)
 	(void)x;
 	(void)y;
 	if (button == ON_MOUSEDOWN)
-		ft_zoom(win);
+		ft_zoom(win, x, y);
 	else if (button == ON_MOUSEUP)
-		ft_dezoom(win);
+		ft_dezoom(win, x, y);
 	return (EXIT_SUCCESS);
 }

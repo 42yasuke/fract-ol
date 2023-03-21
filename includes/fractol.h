@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jralph <jralph@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:47:34 by jose              #+#    #+#             */
-/*   Updated: 2023/03/21 03:37:22 by jose             ###   ########.fr       */
+/*   Updated: 2023/03/21 17:30:47 by jralph           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ int		ft_event_manager(int keycode, t_win *win);
 int		ft_event_manager2(int button, int x, int y, t_win *win);
 
 /*	events_utils.c	*/
-void	ft_zoom(t_win *win);
-void	ft_dezoom(t_win *win);
+void	ft_zoom(t_win *win, int x, int y);
+void	ft_dezoom(t_win *win, int x, int y);
 
 /*	events_utils2.c	*/
 void	ft_go_right(t_win *win);
