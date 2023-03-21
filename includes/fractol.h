@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:47:34 by jose              #+#    #+#             */
-/*   Updated: 2023/03/20 14:02:08 by jose             ###   ########.fr       */
+/*   Updated: 2023/03/21 03:37:22 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@
 # define ON_MOUSEUP 5
 # define CENTER_X WIN_W / 2
 # define CENTER_Y WIN_H / 2
+# define DECA_PIXEL 2.5
 
 /* error's macro	*/
 # define BAD_PARAMETERS 0
@@ -42,6 +43,14 @@
 
 /*	keybord's macro	*/
 # define KEY_ESC 65307
+# define KEY_Z 122
+# define KEY_Q 113
+# define KEY_D 100
+# define KEY_S 115
+# define KEY_UP 65362
+# define KEY_DOWN 65364
+# define KEY_LEFT 65361
+# define KEY_RIGHT 65363
 
 typedef struct s_win
 {
@@ -65,8 +74,14 @@ int		ft_event_manager(int keycode, t_win *win);
 int		ft_event_manager2(int button, int x, int y, t_win *win);
 
 /*	events_utils.c	*/
-void	ft_zoom(t_win *win, int x, int y);
-void	ft_dezoom(t_win *win, int x, int y);
+void	ft_zoom(t_win *win);
+void	ft_dezoom(t_win *win);
+
+/*	events_utils2.c	*/
+void	ft_go_right(t_win *win);
+void	ft_go_left(t_win *win);
+void 	ft_go_up(t_win *win);
+void	ft_go_down(t_win *win);
 
 /*	draw.c	*/
 int		ft_draw_fractal(t_win *win);

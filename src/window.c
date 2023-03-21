@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 17:11:40 by jose              #+#    #+#             */
-/*   Updated: 2023/03/18 01:09:58 by jose             ###   ########.fr       */
+/*   Updated: 2023/03/20 23:34:33 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	*ft_initial_window(char *fractal_name)
 	win->mlx_win = mlx_new_window(win->mlx, WIN_W, WIN_H, "FRACTOL");
 	if (!win->mlx_win)
 		(ft_free_window(win), ft_error(MLX_WIN_FAILED, "mlx_win"));
-	if (!ft_strncmp(fractal_name, "mandelbrot", ft_strlen(fractal_name)))
+	if (!ft_strncmp(fractal_name, "m", ft_strlen(fractal_name)))
 		ft_mandelbrot(win);
 	return (win);
 }

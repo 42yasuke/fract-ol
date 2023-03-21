@@ -6,7 +6,7 @@
 #    By: jose <jose@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/14 17:43:43 by jose              #+#    #+#              #
-#    Updated: 2023/03/18 11:20:48 by jose             ###   ########.fr        #
+#    Updated: 2023/03/21 02:54:46 by jose             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ RM = rm -f
 C_FILES =	main.c \
 			events.c \
 			events_utils.c \
+			events_utils2.c \
 			free.c \
 			window.c \
 			error.c \
