@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:35:59 by jose              #+#    #+#             */
-/*   Updated: 2023/03/20 14:02:50 by jose             ###   ########.fr       */
+/*   Updated: 2023/03/23 02:27:27 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,12 @@ static int	ft_calcul(t_win *win, int coord)
 	double	z_i;
 	double	tmp;
 	int		color;
+	int		add;
 
 	i = 0;
 	z_r = 0;
 	z_i = 0;
+	add = 15;
 	color = BLACK;
 	while (i < win->iteration_max)
 	{
@@ -49,14 +51,25 @@ static int	ft_calcul(t_win *win, int coord)
 		if (z_r * z_r + z_i * z_i >= 4)
 			break ;
 		i++;
-		color += 10;
+		color += add;
+		if (color > 0x00FFFF)
+			add = 100000;
+		if (color > 0x0000FF)
+			add = 1000;
+		else
+			add = 10;
 	}
+	if (i == win->iteration_max)
+		return (BLACK);
 	return (color);
 }
 
 static void	ft_draw_pixel(t_win *win, int coord)
 {
-	mlx_pixel_put(win->mlx, win->mlx_win, coord / 1000, coord % 1000, ft_calcul(win, coord));
+	int	color;
+
+	color = ft_calcul(win, coord);
+	mlx_pixel_put(win->mlx, win->mlx_win, coord / 1000, coord % 1000, color);
 }
 
 static int	ft_draw_f(t_win *win)
@@ -82,7 +95,7 @@ int	ft_draw_fractal(t_win *win)
 {
 	static int	fps = 0;
 	if (fps % FPS == 0)
-		ft_draw_f(win);
+		(ft_draw_f(win), mlx_do_sync(win->mlx));
 	fps++;
 	return (EXIT_SUCCESS);
 }

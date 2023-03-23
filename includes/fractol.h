@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jralph <jralph@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:47:34 by jose              #+#    #+#             */
-/*   Updated: 2023/03/21 17:30:47 by jralph           ###   ########.fr       */
+/*   Updated: 2023/03/23 01:51:17 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,9 @@ void	ft_go_down(t_win *win);
 
 /*	draw.c	*/
 int		ft_draw_fractal(t_win *win);
+
+/*	draw_utils.c	*/
+int		encode_rgb(int red, int green, int blue);
 
 /*	free.c	*/
 void	ft_free_window(t_win *window);
