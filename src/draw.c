@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:35:59 by jose              #+#    #+#             */
-/*   Updated: 2023/03/23 02:27:27 by jose             ###   ########.fr       */
+/*   Updated: 2023/03/25 02:51:46 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,10 @@ static int	ft_calcul(t_win *win, int coord)
 	double	z_i;
 	double	tmp;
 	int		color;
-	int		add;
 
 	i = 0;
 	z_r = 0;
 	z_i = 0;
-	add = 15;
-	color = BLACK;
 	while (i < win->iteration_max)
 	{
 		tmp = z_r;
@@ -51,16 +48,10 @@ static int	ft_calcul(t_win *win, int coord)
 		if (z_r * z_r + z_i * z_i >= 4)
 			break ;
 		i++;
-		color += add;
-		if (color > 0x00FFFF)
-			add = 100000;
-		if (color > 0x0000FF)
-			add = 1000;
-		else
-			add = 10;
 	}
 	if (i == win->iteration_max)
 		return (BLACK);
+	color = i * BLUE / win->iteration_max;
 	return (color);
 }
 

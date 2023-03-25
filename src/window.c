@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 17:11:40 by jose              #+#    #+#             */
-/*   Updated: 2023/03/20 23:34:33 by jose             ###   ########.fr       */
+/*   Updated: 2023/03/25 02:49:35 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	ft_mandelbrot(t_win *win)
 	win->x = -3.0;
 	win->y = 3.0;
 	win->zoom = 100.0;
-	win->iteration_max = 50;
+	win->iteration_max = 100;
 }
 
 void	*ft_initial_window(char *fractal_name)

@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:47:34 by jose              #+#    #+#             */
-/*   Updated: 2023/03/23 01:51:17 by jose             ###   ########.fr       */
+/*   Updated: 2023/03/25 02:27:45 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # define WIN_W 600
 # define WIN_H 600
 # define BLACK 0x000000
+# define BLUE 0x0000FF
 # define WHITE 0xFFFFFF
 # define FPS 15
 # define ON_MOUSEDOWN 4
