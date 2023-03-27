@@ -6,16 +6,18 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 17:38:33 by jose              #+#    #+#             */
-/*   Updated: 2023/03/17 15:39:20 by jose             ###   ########.fr       */
+/*   Updated: 2023/03/26 14:53:21 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	ft_free_window(t_win *window)
+void	ft_free_window(t_win *win)
 {
-	if (!window)
+	if (!win)
 		return ;
-	mlx_destroy_window(window->mlx, window->mlx_win);
-	mlx_loop_end(window->mlx);
+	if (win->img)
+		(mlx_destroy_image(win->mlx, win->img->img), free(win->img));
+	mlx_destroy_window(win->mlx, win->mlx_win);
+	mlx_loop_end(win->mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:47:34 by jose              #+#    #+#             */
-/*   Updated: 2023/03/25 02:27:45 by jose             ###   ########.fr       */
+/*   Updated: 2023/03/27 02:44:48 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@
 # define WIN_W 600
 # define WIN_H 600
 # define BLACK 0x000000
+# define RED 0xFF0000
+# define GREEN 0x00FF00
 # define BLUE 0x0000FF
 # define WHITE 0xFFFFFF
 # define FPS 15
@@ -53,6 +55,19 @@
 # define KEY_LEFT 65361
 # define KEY_RIGHT 65363
 
+typedef int v4si __attribute__ ((vector_size (16)));
+
+typedef struct s_image
+{
+	void	*img;
+	char	*addr;
+	int		bpp;
+	int		size_line;
+	int		endian;
+	int		width;
+	int		height;
+}	t_image;
+
 typedef struct s_win
 {
 	void	*mlx;
@@ -61,6 +76,7 @@ typedef struct s_win
 	double	y;
 	double	zoom;
 	int		iteration_max;
+	t_image	*img;
 }	t_win;
 
 /*	window.c	*/
@@ -88,7 +104,9 @@ void	ft_go_down(t_win *win);
 int		ft_draw_fractal(t_win *win);
 
 /*	draw_utils.c	*/
-int		encode_rgb(int red, int green, int blue);
+int		ft_nbr_red(int color);
+int		ft_nbr_green(int color);
+int		ft_nbr_blue(int color);
 
 /*	free.c	*/
 void	ft_free_window(t_win *window);

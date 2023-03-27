@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:35:59 by jose              #+#    #+#             */
-/*   Updated: 2023/03/25 02:51:46 by jose             ###   ########.fr       */
+/*   Updated: 2023/03/27 02:46:48 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,20 @@ static int	ft_calcul(t_win *win, int coord)
 	}
 	if (i == win->iteration_max)
 		return (BLACK);
-	color = i * BLUE / win->iteration_max;
+	//color = i * BLUE / win->iteration_max;
+	color = WHITE;
 	return (color);
 }
 
 static void	ft_draw_pixel(t_win *win, int coord)
 {
-	int	color;
+	int		color;
 
 	color = ft_calcul(win, coord);
-	mlx_pixel_put(win->mlx, win->mlx_win, coord / 1000, coord % 1000, color);
+	*(int *)(win->img->addr + (coord / 1000) * (win->img->bpp / 8) + (coord % 1000) * win->img->size_line + 0) = ft_nbr_red(color);
+	*(int *)(win->img->addr + (coord / 1000) * (win->img->bpp / 8) + (coord % 1000) * win->img->size_line + 1) = ft_nbr_green(color);
+	*(int *)(win->img->addr + (coord / 1000) * (win->img->bpp / 8) + (coord % 1000) * win->img->size_line + 2) = ft_nbr_blue(color);
+	*(int *)(win->img->addr + (coord / 1000) * (win->img->bpp / 8) + (coord % 1000) * win->img->size_line + 3) = 0;
 }
 
 static int	ft_draw_f(t_win *win)
@@ -69,10 +73,10 @@ static int	ft_draw_f(t_win *win)
 	int	y;
 
 	x = 0;
-	while (x < WIN_H)
+	while (x < WIN_W)
 	{
 		y = 0;
-		while (y < WIN_W)
+		while (y < WIN_H)
 		{
 			ft_draw_pixel(win, x * 1000 + y);
 			y++;
@@ -86,7 +90,11 @@ int	ft_draw_fractal(t_win *win)
 {
 	static int	fps = 0;
 	if (fps % FPS == 0)
-		(ft_draw_f(win), mlx_do_sync(win->mlx));
+	{
+		ft_draw_f(win);
+		mlx_put_image_to_window(win->mlx, win->mlx_win, win->img->img, 0, 0);
+		mlx_do_sync(win->mlx);
+	}
 	fps++;
 	return (EXIT_SUCCESS);
 }
