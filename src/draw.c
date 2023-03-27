@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:35:59 by jose              #+#    #+#             */
-/*   Updated: 2023/03/27 13:33:54 by jose             ###   ########.fr       */
+/*   Updated: 2023/03/27 14:06:14 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,7 @@ static int	ft_calcul(t_win *win, int coord)
 	}
 	if (i == win->iteration_max)
 		return (BLACK);
-	//color = i * BLUE / win->iteration_max;
-	color = 0x0000FF00;
+	color = i * RED / win->iteration_max;
 	return (color);
 }
 
@@ -63,9 +62,9 @@ static void	ft_draw_pixel(t_win *win, int coord)
 
 	color = ft_calcul(win, coord);
 	addr = win->img->addr;
-	addr[(coord / 1000) * (win->img->bpp / 8) + (coord % 1000) * win->img->size_line + 0] = ft_nbr_red(color);
+	addr[(coord / 1000) * (win->img->bpp / 8) + (coord % 1000) * win->img->size_line + 0] = ft_nbr_blue(color);
 	addr[(coord / 1000) * (win->img->bpp / 8) + (coord % 1000) * win->img->size_line + 1] = ft_nbr_green(color);
-	addr[(coord / 1000) * (win->img->bpp / 8) + (coord % 1000) * win->img->size_line + 2] = ft_nbr_blue(color);
+	addr[(coord / 1000) * (win->img->bpp / 8) + (coord % 1000) * win->img->size_line + 2] = ft_nbr_red(color);
 	addr[(coord / 1000) * (win->img->bpp / 8) + (coord % 1000) * win->img->size_line + 3] = 0;
 }
 

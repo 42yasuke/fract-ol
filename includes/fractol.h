@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:47:34 by jose              #+#    #+#             */
-/*   Updated: 2023/03/27 13:34:42 by jose             ###   ########.fr       */
+/*   Updated: 2023/03/27 13:57:06 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,20 @@
 /*	window's macro	*/
 # define WIN_W 600
 # define WIN_H 600
-# define BLACK 0x000000
-# define RED 0xFF000000
-# define GREEN 0x00FF0000
-# define BLUE 0x0000FF00
-# define ALPHA 0x000000FF
-# define WHITE 0xFFFFFF
 # define FPS 15
 # define ON_MOUSEDOWN 4
 # define ON_MOUSEUP 5
 # define CENTER_X WIN_W / 2
 # define CENTER_Y WIN_H / 2
 # define DECA_PIXEL 2.5
+
+/*	pixel's color BGRA	*/
+# define WHITE 0xFFFFFF
+# define BLACK 0x000000
+# define RED 0x0000FF
+# define GREEN 0x00FF00
+# define BLUE 0xFF0000
+# define ALPHA 0x000000
 
 /* error's macro	*/
 # define BAD_PARAMETERS 0
