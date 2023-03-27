@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:47:34 by jose              #+#    #+#             */
-/*   Updated: 2023/03/27 02:44:48 by jose             ###   ########.fr       */
+/*   Updated: 2023/03/27 13:34:42 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,10 @@
 # define WIN_W 600
 # define WIN_H 600
 # define BLACK 0x000000
-# define RED 0xFF0000
-# define GREEN 0x00FF00
-# define BLUE 0x0000FF
+# define RED 0xFF000000
+# define GREEN 0x00FF0000
+# define BLUE 0x0000FF00
+# define ALPHA 0x000000FF
 # define WHITE 0xFFFFFF
 # define FPS 15
 # define ON_MOUSEDOWN 4
@@ -104,9 +105,10 @@ void	ft_go_down(t_win *win);
 int		ft_draw_fractal(t_win *win);
 
 /*	draw_utils.c	*/
-int		ft_nbr_red(int color);
-int		ft_nbr_green(int color);
-int		ft_nbr_blue(int color);
+char	ft_nbr_red(int color);
+char	ft_nbr_green(int color);
+char	ft_nbr_blue(int color);
+char	ft_nbr_alpha(int color);
 
 /*	free.c	*/
 void	ft_free_window(t_win *window);

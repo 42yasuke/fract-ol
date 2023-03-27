@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 17:11:40 by jose              #+#    #+#             */
-/*   Updated: 2023/03/27 01:48:30 by jose             ###   ########.fr       */
+/*   Updated: 2023/03/27 13:37:06 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	ft_add_image(t_win *win)
 	if (!win->img)
 		(ft_free_window(win), ft_error(MALLOC_FAILED, "malloc_img"));
 	win->img->img = mlx_xpm_file_to_image(win->mlx, "/home/jose/C/fract-ol/image/noir.xpm", &win->img->width, &win->img->height);
-	win->img->addr = mlx_get_data_addr(win->img, &win->img->bpp, &win->img->size_line, &win->img->endian);
+	win->img->addr = mlx_get_data_addr(win->img->img, &win->img->bpp, &win->img->size_line, &win->img->endian);
 }
 
 static void	ft_mandelbrot(t_win *win)
