@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 19:01:55 by jose              #+#    #+#             */
-/*   Updated: 2023/03/29 12:38:06 by jose             ###   ########.fr       */
+/*   Updated: 2023/03/29 19:26:20 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_event_manager(int keycode, t_win *win)
 		(ft_go_left(win));
 	else if (keycode == KEY_RIGHT || keycode == KEY_D)
 		(ft_go_right(win));
-	return (EXIT_SUCCESS);
+	return (ft_lstclear(&win->lst_str, &free), ft_win_lst_str(win), EXIT_SUCCESS);
 }
 
 int	ft_event_manager2(int button, int x, int y, t_win *win)
@@ -40,5 +40,5 @@ int	ft_event_manager2(int button, int x, int y, t_win *win)
 		(ft_zoom(win, x, y));
 	else if (button == ON_MOUSEUP)
 		(ft_dezoom(win, x, y));
-	return (EXIT_SUCCESS);
+	return (ft_lstclear(&win->lst_str, &free), ft_win_lst_str(win), EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:35:59 by jose              #+#    #+#             */
-/*   Updated: 2023/03/29 13:28:56 by jose             ###   ########.fr       */
+/*   Updated: 2023/03/29 19:17:37 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,11 +90,21 @@ void	ft_draw_f(t_win *win)
 int	ft_draw_fractal(t_win *win)
 {
 	static int	fps = 0;
+	t_list		*tmp;
+	int			i;
+
+	tmp = win->lst_str;
+	i = 0;
 	if (fps % FPS == 0)
 	{
 		ft_draw_f(win);
 		mlx_put_image_to_window(win->mlx, win->mlx_win, win->img->img, 0, 0);
-		mlx_string_put(win->mlx, win->mlx_win, 50, 50, 0xFFFFFF, win->str);
+		while (tmp)
+		{
+			mlx_string_put(win->mlx, win->mlx_win, 0, (i + 1) * 15, 0xFFFFFF, tmp->content);
+			tmp = tmp->next;
+			i++;
+		}
 		mlx_do_sync(win->mlx);
 	}
 	fps++;

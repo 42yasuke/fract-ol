@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:47:34 by jose              #+#    #+#             */
-/*   Updated: 2023/03/29 13:29:43 by jose             ###   ########.fr       */
+/*   Updated: 2023/03/29 19:13:45 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,15 @@ typedef struct s_win
 	v4df	zoom;
 	int		iteration_max;
 	t_image	*img;
-	char	*str;
+	t_list	*lst_str;
 }	t_win;
 
 /*	window.c	*/
 void	*ft_initial_window(char *fractal_name);
+
+/*	window_utils.c	*/
+void	ft_win_lst_str(t_win *win);
+void	ft_win_lst_str_suite(t_win *win);
 
 /*	error.c	*/
 void	ft_error(int err, char *msg_err);

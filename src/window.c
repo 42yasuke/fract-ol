@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 17:11:40 by jose              #+#    #+#             */
-/*   Updated: 2023/03/29 13:40:07 by jose             ###   ########.fr       */
+/*   Updated: 2023/03/29 18:01:17 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,7 @@ void	*ft_initial_window(char *fractal_name)
 	if (!ft_strncmp(fractal_name, "m", ft_strlen(fractal_name)))
 		ft_mandelbrot(win);
 	ft_add_image(win);
+	win->lst_str = NULL;
+	ft_win_lst_str(win);
 	return (ft_draw_f(win), win);
 }
