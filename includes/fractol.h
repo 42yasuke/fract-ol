@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:47:34 by jose              #+#    #+#             */
-/*   Updated: 2023/03/27 13:57:06 by jose             ###   ########.fr       */
+/*   Updated: 2023/03/29 13:29:43 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 /*	window's macro	*/
 # define WIN_W 600
 # define WIN_H 600
-# define FPS 15
+# define FPS 37
 # define ON_MOUSEDOWN 4
 # define ON_MOUSEUP 5
 # define CENTER_X WIN_W / 2
@@ -58,7 +58,8 @@
 # define KEY_LEFT 65361
 # define KEY_RIGHT 65363
 
-typedef int v4si __attribute__ ((vector_size (16)));
+typedef int		v4si __attribute__ ((vector_size (4)));
+typedef double	v4df __attribute__ ((vector_size (8)));
 
 typedef struct s_image
 {
@@ -75,11 +76,12 @@ typedef struct s_win
 {
 	void	*mlx;
 	void	*mlx_win;
-	double	x;
-	double	y;
-	double	zoom;
+	v4df	x;
+	v4df	y;
+	v4df	zoom;
 	int		iteration_max;
 	t_image	*img;
+	char	*str;
 }	t_win;
 
 /*	window.c	*/
@@ -105,6 +107,7 @@ void	ft_go_down(t_win *win);
 
 /*	draw.c	*/
 int		ft_draw_fractal(t_win *win);
+void	ft_draw_f(t_win *win);
 
 /*	draw_utils.c	*/
 char	ft_nbr_red(int color);
