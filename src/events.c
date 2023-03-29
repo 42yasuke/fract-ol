@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 19:01:55 by jose              #+#    #+#             */
-/*   Updated: 2023/03/29 19:26:20 by jose             ###   ########.fr       */
+/*   Updated: 2023/03/29 22:07:14 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,13 @@ int	ft_event_manager(int keycode, t_win *win)
 		(ft_go_left(win));
 	else if (keycode == KEY_RIGHT || keycode == KEY_D)
 		(ft_go_right(win));
+	else if (keycode == KEY_ZOOM)
+		ft_increase_i_max(win);
+	else if (keycode == KEY_DEZOOM)
+		ft_decrease_i_max(win);
+	else if (keycode == KEY_I)
+		if (win->fract == 'm')
+			ft_mandelbrot(win);
 	return (ft_lstclear(&win->lst_str, &free), ft_win_lst_str(win), EXIT_SUCCESS);
 }
 

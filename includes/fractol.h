@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:47:34 by jose              #+#    #+#             */
-/*   Updated: 2023/03/29 19:13:45 by jose             ###   ########.fr       */
+/*   Updated: 2023/03/29 23:10:48 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,13 @@
 # define KEY_Q 113
 # define KEY_D 100
 # define KEY_S 115
+# define KEY_I 105
 # define KEY_UP 65362
 # define KEY_DOWN 65364
 # define KEY_LEFT 65361
 # define KEY_RIGHT 65363
+# define KEY_ZOOM 65451
+# define KEY_DEZOOM 65453
 
 typedef int		v4si __attribute__ ((vector_size (4)));
 typedef double	v4df __attribute__ ((vector_size (8)));
@@ -82,6 +85,7 @@ typedef struct s_win
 	int		iteration_max;
 	t_image	*img;
 	t_list	*lst_str;
+	char	fract;
 }	t_win;
 
 /*	window.c	*/
@@ -90,6 +94,9 @@ void	*ft_initial_window(char *fractal_name);
 /*	window_utils.c	*/
 void	ft_win_lst_str(t_win *win);
 void	ft_win_lst_str_suite(t_win *win);
+
+/*	window_utils2.c	*/
+void	ft_mandelbrot(t_win *win);
 
 /*	error.c	*/
 void	ft_error(int err, char *msg_err);
@@ -108,6 +115,10 @@ void	ft_go_right(t_win *win);
 void	ft_go_left(t_win *win);
 void 	ft_go_up(t_win *win);
 void	ft_go_down(t_win *win);
+
+/*	events_utils3.c	*/
+void	ft_increase_i_max(t_win *win);
+void	ft_decrease_i_max(t_win *win);
 
 /*	draw.c	*/
 int		ft_draw_fractal(t_win *win);
