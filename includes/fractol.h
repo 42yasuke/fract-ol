@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jralph <jralph@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:47:34 by jose              #+#    #+#             */
-/*   Updated: 2023/03/29 23:10:48 by jose             ###   ########.fr       */
+/*   Updated: 2023/04/06 18:28:30 by jralph           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 # define CENTER_X WIN_W / 2
 # define CENTER_Y WIN_H / 2
 # define DECA_PIXEL 2.5
+# define N_COLORS 1792
 
 /*	pixel's color BGRA	*/
 # define WHITE 0xFFFFFF
@@ -86,6 +87,7 @@ typedef struct s_win
 	t_image	*img;
 	t_list	*lst_str;
 	char	fract;
+	int		*colors;
 }	t_win;
 
 /*	window.c	*/
@@ -97,6 +99,9 @@ void	ft_win_lst_str_suite(t_win *win);
 
 /*	window_utils2.c	*/
 void	ft_mandelbrot(t_win *win);
+
+/*	window_utils3.c	*/
+void	ft_win_colors(t_win *win);
 
 /*	error.c	*/
 void	ft_error(int err, char *msg_err);
@@ -129,6 +134,7 @@ char	ft_nbr_red(int color);
 char	ft_nbr_green(int color);
 char	ft_nbr_blue(int color);
 char	ft_nbr_alpha(int color);
+int		ft_bgr_into_int(int b, int g, int r);
 
 /*	free.c	*/
 void	ft_free_window(t_win *window);

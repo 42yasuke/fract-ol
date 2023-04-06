@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jralph <jralph@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:35:59 by jose              #+#    #+#             */
-/*   Updated: 2023/03/29 19:17:37 by jose             ###   ########.fr       */
+/*   Updated: 2023/04/06 16:39:55 by jralph           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,5 +108,7 @@ int	ft_draw_fractal(t_win *win)
 		mlx_do_sync(win->mlx);
 	}
 	fps++;
+	if (fps == INT_MAX)
+		fps = 0;
 	return (EXIT_SUCCESS);
 }

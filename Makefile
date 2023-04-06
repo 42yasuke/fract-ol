@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jose <jose@student.42.fr>                  +#+  +:+       +#+         #
+#    By: jralph <jralph@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/14 17:43:43 by jose              #+#    #+#              #
-#    Updated: 2023/03/29 22:04:54 by jose             ###   ########.fr        #
+#    Updated: 2023/04/06 17:29:19 by jralph           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc
+CC = cc
 
 CFLAGS = -Wall -Wextra -Werror -g
 
@@ -27,6 +27,7 @@ C_FILES =	main.c \
 			window.c \
 			window_utils.c \
 			window_utils2.c \
+			window_utils3.c \
 			error.c \
 			draw.c \
 			draw_utils.c
@@ -58,13 +59,22 @@ libmlx.a :
 			make -C mlx42
 
 %.o : %.c
-			$(CC) $(CFLAGS_OBJ) $< -o $@ $(LIB) $(MLBX) $(INC)
+			$(CC) $(CFLAGS_OBJ) $< -o $@ $(INC)
 
-$(NAME) : libft.a libmlx.a $(OBJ)
-			$(CC) $(CFLAGS) $(OBJ) -o $@ $(LIB) $(MLBX)
+.mandatory : libft.a libmlx.a $(OBJ)
+			$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIB) $(MLBX)
+			touch $@
+			$(RM) .bonus
 
-bonus : libft.a libmlx.a $(OBJ_BONUS)
+$(NAME) : .mandatory
+
+.bonus : libft.a libmlx.a $(OBJ_BONUS)
 			$(CC) $(CFLAGS) $(OBJ_BONUS) -o $(NAME) $(LIB) $(MLBX)
+			touch $@
+			$(RM) .mandatory
+
+bonus : .bonus
+
 clean :
 		make clean -C libft
 		make clean -C mlx42

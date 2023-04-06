@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jralph <jralph@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 01:46:15 by jose              #+#    #+#             */
-/*   Updated: 2023/03/27 13:58:14 by jose             ###   ########.fr       */
+/*   Updated: 2023/04/06 18:27:25 by jralph           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,9 @@ char	ft_nbr_red(int color)
 char	ft_nbr_alpha(int color)
 {
 	return (color & ALPHA);
+}
+
+int	ft_bgr_into_int(int b, int g, int r)
+{
+	
 }
