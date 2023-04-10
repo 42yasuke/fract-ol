@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jralph <jralph@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:35:59 by jose              #+#    #+#             */
-/*   Updated: 2023/04/06 16:39:55 by jralph           ###   ########.fr       */
+/*   Updated: 2023/04/10 02:12:39 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ static int	ft_calcul(t_win *win, int coord)
 	v4df	z_r;
 	v4df	z_i;
 	v4df	tmp;
-	int		color;
 
 	i = 0;
 	z_r[0] = 0;
@@ -50,18 +49,25 @@ static int	ft_calcul(t_win *win, int coord)
 			break ;
 		i++;
 	}
-	if (i == win->iteration_max)
-		return (BLACK);
-	color = i * RED / win->iteration_max;
-	return (color);
+	return (i);
 }
 
 static void	ft_draw_pixel(t_win *win, int coord)
 {
 	int		color;
+	int		i_pix;
 	char	*addr;
 
-	color = ft_calcul(win, coord);
+	i_pix = ft_calcul(win, coord);
+	if (i_pix == win->iteration_max)
+		color = BLACK;
+	else if (!win->use_colors)
+		color = i_pix * RED / win->iteration_max;
+	else
+	{
+		i_pix = i_pix * (N_COLORS - 1) / win->iteration_max;
+		color = win->colors[i_pix];
+	}
 	addr = win->img->addr;
 	addr[(coord / 1000) * (win->img->bpp / 8) + (coord % 1000) * win->img->size_line + 0] = ft_nbr_blue(color);
 	addr[(coord / 1000) * (win->img->bpp / 8) + (coord % 1000) * win->img->size_line + 1] = ft_nbr_green(color);

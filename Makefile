@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jralph <jralph@student.42.fr>              +#+  +:+       +#+         #
+#    By: jose <jose@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/14 17:43:43 by jose              #+#    #+#              #
-#    Updated: 2023/04/06 17:29:19 by jralph           ###   ########.fr        #
+#    Updated: 2023/04/10 02:27:58 by jose             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,7 +82,7 @@ clean :
 		$(RM) bonus/*.o
 
 fclean : clean
-		$(RM) $(NAME) libft.a libmlx.a
+		$(RM) $(NAME) libft.a libmlx.a .mandatory .bonus
 
 re : fclean all
 

@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 19:01:55 by jose              #+#    #+#             */
-/*   Updated: 2023/03/29 22:07:14 by jose             ###   ########.fr       */
+/*   Updated: 2023/04/10 02:21:04 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	ft_event_manager(int keycode, t_win *win)
 		ft_increase_i_max(win);
 	else if (keycode == KEY_DEZOOM)
 		ft_decrease_i_max(win);
+	else if (keycode == KEY_C)
+		win->use_colors = !win->use_colors;
 	else if (keycode == KEY_I)
 		if (win->fract == 'm')
 			ft_mandelbrot(win);

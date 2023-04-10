@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jralph <jralph@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 17:11:40 by jose              #+#    #+#             */
-/*   Updated: 2023/04/06 17:25:37 by jralph           ###   ########.fr       */
+/*   Updated: 2023/04/10 01:43:29 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,6 @@ void	*ft_initial_window(char *fractal_name)
 	ft_win_lst_str(win);
 	win->colors = NULL;
 	ft_win_colors(win);
+	win->use_colors = false;
 	return (ft_draw_f(win), win);
 }

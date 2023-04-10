@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jralph <jralph@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:47:34 by jose              #+#    #+#             */
-/*   Updated: 2023/04/06 18:28:30 by jralph           ###   ########.fr       */
+/*   Updated: 2023/04/10 02:21:14 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@
 # define KEY_RIGHT 65363
 # define KEY_ZOOM 65451
 # define KEY_DEZOOM 65453
+# define KEY_C 99
 
 typedef int		v4si __attribute__ ((vector_size (4)));
 typedef double	v4df __attribute__ ((vector_size (8)));
@@ -88,6 +89,7 @@ typedef struct s_win
 	t_list	*lst_str;
 	char	fract;
 	int		*colors;
+	int		use_colors;
 }	t_win;
 
 /*	window.c	*/
