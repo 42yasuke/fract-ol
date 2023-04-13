@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:47:34 by jose              #+#    #+#             */
-/*   Updated: 2023/04/10 02:21:14 by jose             ###   ########.fr       */
+/*   Updated: 2023/04/13 12:32:15 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,8 @@ typedef struct s_win
 	char	fract;
 	int		*colors;
 	int		use_colors;
+	v4df	x_j;
+	v4df	y_j;
 }	t_win;
 
 /*	window.c	*/

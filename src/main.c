@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:50:52 by jose              #+#    #+#             */
-/*   Updated: 2023/04/10 03:58:03 by jose             ###   ########.fr       */
+/*   Updated: 2023/04/11 12:27:39 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,16 @@ int	main(int ac, char **av)
 {
 	t_win	*win;
 
-	if (ac == 2 && )
+	if (ac != 2 || ac != 4)
 		ft_error(BAD_PARAMETERS, "bad parameters");
-	win = ft_initial_window(av[1]);
+	if (ft_strlen(av[1]) != 1)
+		ft_error(BAD_PARAMETERS, "bad parameters");
+	if (ft_strncmp(av[1], "m", 1) && ft_strncmp(av[1], "j", 1))
+		ft_error(BAD_PARAMETERS, "bad parameters");
+	if (ac != 2 && !ft_strncmp(av[1], "m", 1))
+		ft_error(BAD_PARAMETERS, "bad parameters");
+	if (ac != 4 && !ft_strncmp(av[1], "j", 1))
+		ft_error(BAD_PARAMETERS, "bad parameters");
+	win = ft_initial_window(av);
 	return (suite_main(win));
 }

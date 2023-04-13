@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 17:11:40 by jose              #+#    #+#             */
-/*   Updated: 2023/04/10 01:43:29 by jose             ###   ########.fr       */
+/*   Updated: 2023/04/11 12:49:42 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	ft_add_image(t_win *win)
 	win->img->addr = mlx_get_data_addr(win->img->img, &win->img->bpp, &win->img->size_line, &win->img->endian);
 }
 
-void	*ft_initial_window(char *fractal_name)
+void	*ft_initial_window(char **av)
 {
 	t_win	*win;
 
@@ -34,8 +34,10 @@ void	*ft_initial_window(char *fractal_name)
 	win->mlx_win = mlx_new_window(win->mlx, WIN_W, WIN_H, "FRACTOL");
 	if (!win->mlx_win)
 		(ft_free_window(win), ft_error(MLX_WIN_FAILED, "mlx_win"));
-	if (!ft_strncmp(fractal_name, "m", ft_strlen(fractal_name)))
+	if (!ft_strncmp(av[1], "m", 1))
 		(ft_mandelbrot(win), win->fract = 'm');
+	else if (!ft_strncmp(av[1], "j", 1))
+		(ft_julia(win), win->fract = 'j');
 	ft_add_image(win);
 	win->lst_str = NULL;
 	ft_win_lst_str(win);
