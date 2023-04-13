@@ -6,7 +6,7 @@
 #    By: jose <jose@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/14 17:43:43 by jose              #+#    #+#              #
-#    Updated: 2023/04/10 02:27:58 by jose             ###   ########.fr        #
+#    Updated: 2023/04/13 12:47:05 by jose             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ C_FILES =	main.c \
 			window_utils.c \
 			window_utils2.c \
 			window_utils3.c \
+			window_utils4.c \
 			error.c \
 			draw.c \
 			draw_utils.c

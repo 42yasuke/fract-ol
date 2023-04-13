@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 17:11:40 by jose              #+#    #+#             */
-/*   Updated: 2023/04/11 12:49:42 by jose             ###   ########.fr       */
+/*   Updated: 2023/04/13 12:36:46 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	*ft_initial_window(char **av)
 	if (!ft_strncmp(av[1], "m", 1))
 		(ft_mandelbrot(win), win->fract = 'm');
 	else if (!ft_strncmp(av[1], "j", 1))
-		(ft_julia(win), win->fract = 'j');
+		(ft_julia(win, av[2], av[3]), win->fract = 'j');
 	ft_add_image(win);
 	win->lst_str = NULL;
 	ft_win_lst_str(win);

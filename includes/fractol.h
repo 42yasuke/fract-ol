@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:47:34 by jose              #+#    #+#             */
-/*   Updated: 2023/04/13 12:32:15 by jose             ###   ########.fr       */
+/*   Updated: 2023/04/13 12:48:35 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ typedef struct s_win
 }	t_win;
 
 /*	window.c	*/
-void	*ft_initial_window(char *fractal_name);
+void	*ft_initial_window(char **av);
 
 /*	window_utils.c	*/
 void	ft_win_lst_str(t_win *win);
@@ -106,6 +106,9 @@ void	ft_mandelbrot(t_win *win);
 
 /*	window_utils3.c	*/
 void	ft_win_colors(t_win *win);
+
+/*	window_utils4.c	*/
+int		ft_good_nbr_str(char *nbr_str);
 
 /*	error.c	*/
 void	ft_error(int err, char *msg_err);
