@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jralph <jralph@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:50:52 by jose              #+#    #+#             */
-/*   Updated: 2023/04/13 12:45:37 by jose             ###   ########.fr       */
+/*   Updated: 2023/04/14 20:04:50 by jralph           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	main(int ac, char **av)
 		ft_error(BAD_PARAMETERS, "bad parameters");
 	if (ac == 4)
 	{
-		if (!ft_good_nbr_str(av[1]) || !ft_good_nbr_str(av[1]))
+		if (!ft_good_nbr_str(av[2]) || !ft_good_nbr_str(av[3]))
 			ft_error(BAD_PARAMETERS, "bad parameters");
 	}
 	win = ft_initial_window(av);
