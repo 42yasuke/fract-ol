@@ -6,11 +6,28 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 21:56:21 by jose              #+#    #+#             */
-/*   Updated: 2023/04/13 12:39:42 by jose             ###   ########.fr       */
+/*   Updated: 2023/04/15 11:02:14 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+static double	ft_give_nbr_after_dot(char *nbr_str)
+{
+	char	*str;
+	double	res;
+
+	str = ft_strchr(nbr_str, '.');
+	if (str)
+		str++;
+	res = (double)ft_atoi(str);
+	while (str)
+	{
+		res /= 10;
+		str++;
+	}
+	return (res);
+}
 
 void	ft_mandelbrot(t_win *win)
 {
@@ -22,8 +39,7 @@ void	ft_mandelbrot(t_win *win)
 
 void	ft_julia(t_win *win, char *nbr_str1, char *nbr_str2)
 {
-	(void)win;
-	(void)nbr_str1;
-	(void)nbr_str2;
-	return ;
+	ft_mandelbrot(win);
+	win->x_j[0] = (double)ft_atoi(nbr_str1) + ft_give_nbr_after_dot(nbr_str1);
+	win->y_j[0] = (double)ft_atoi(nbr_str2) + ft_give_nbr_after_dot(nbr_str2);
 }

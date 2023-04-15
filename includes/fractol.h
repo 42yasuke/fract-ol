@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:47:34 by jose              #+#    #+#             */
-/*   Updated: 2023/04/13 12:48:35 by jose             ###   ########.fr       */
+/*   Updated: 2023/04/15 11:58:20 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ void	ft_win_lst_str_suite(t_win *win);
 
 /*	window_utils2.c	*/
 void	ft_mandelbrot(t_win *win);
+void	ft_julia(t_win *win, char *nbr_str1, char *nbr_str2);
 
 /*	window_utils3.c	*/
 void	ft_win_colors(t_win *win);
@@ -142,6 +143,12 @@ char	ft_nbr_green(int color);
 char	ft_nbr_blue(int color);
 char	ft_nbr_alpha(int color);
 int		ft_bgr_into_int(int b, int g, int r);
+
+/*	mandelbrot.c	*/
+int		ft_calcul_m(t_win *win, int coord);
+
+/*	julia.c	*/
+int		ft_calcul_j(t_win *win);
 
 /*	free.c	*/
 void	ft_free_window(t_win *window);

@@ -6,7 +6,7 @@
 #    By: jose <jose@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/14 17:43:43 by jose              #+#    #+#              #
-#    Updated: 2023/04/13 12:47:05 by jose             ###   ########.fr        #
+#    Updated: 2023/04/15 11:50:48 by jose             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,9 @@ C_FILES =	main.c \
 			window_utils4.c \
 			error.c \
 			draw.c \
-			draw_utils.c
+			draw_utils.c \
+			mandelbrot.c \
+			julia.c
 
 C_FILES_BONUS = main.c
 

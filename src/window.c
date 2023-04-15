@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 17:11:40 by jose              #+#    #+#             */
-/*   Updated: 2023/04/13 12:36:46 by jose             ###   ########.fr       */
+/*   Updated: 2023/04/15 11:52:14 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,23 @@ static void	ft_add_image(t_win *win)
 	win->img->addr = mlx_get_data_addr(win->img->img, &win->img->bpp, &win->img->size_line, &win->img->endian);
 }
 
+static void	ft_initial_all(t_win *win)
+{
+	win->mlx = NULL;
+	win->mlx_win = NULL;
+	win->x[0] = 0;
+	win->y[0] = 0;
+	win->zoom[0] = 0;
+	win->iteration_max = 0;
+	win->img = NULL;
+	win->lst_str = NULL;
+	win->fract = 0;
+	win->colors = NULL;
+	win->use_colors = false;
+	win->x_j[0] = 0;
+	win->y_j[0] = 0;
+}
+
 void	*ft_initial_window(char **av)
 {
 	t_win	*win;
@@ -28,6 +45,7 @@ void	*ft_initial_window(char **av)
 	win = malloc(sizeof(*win));
 	if (!win)
 		return (ft_error(MALLOC_FAILED, "malloc_window"), NULL);
+	ft_initial_all(win);
 	win->mlx = mlx_init();
 	if (!win->mlx)
 		(ft_error(MLX_INIT_FAILED, "mlx_init"));
@@ -38,11 +56,6 @@ void	*ft_initial_window(char **av)
 		(ft_mandelbrot(win), win->fract = 'm');
 	else if (!ft_strncmp(av[1], "j", 1))
 		(ft_julia(win, av[2], av[3]), win->fract = 'j');
-	ft_add_image(win);
-	win->lst_str = NULL;
-	ft_win_lst_str(win);
-	win->colors = NULL;
-	ft_win_colors(win);
-	win->use_colors = false;
+	(ft_add_image(win), ft_win_lst_str(win), ft_win_colors(win));
 	return (ft_draw_f(win), win);
 }
