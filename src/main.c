@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jralph <jralph@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:50:52 by jose              #+#    #+#             */
-/*   Updated: 2023/04/14 20:04:50 by jralph           ###   ########.fr       */
+/*   Updated: 2023/04/16 22:14:01 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(int ac, char **av)
 {
 	t_win	*win;
 
-	if (ac != 2 || ac != 4)
+	if (ac != 2 && ac != 4)
 		ft_error(BAD_PARAMETERS, "bad parameters");
 	if (ft_strlen(av[1]) != 1)
 		ft_error(BAD_PARAMETERS, "bad parameters");

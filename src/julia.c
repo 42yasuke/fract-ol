@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 11:48:13 by jose              #+#    #+#             */
-/*   Updated: 2023/04/15 11:58:02 by jose             ###   ########.fr       */
+/*   Updated: 2023/04/17 00:19:26 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static v4df	ft_calcul_z_r(t_win *win, v4df z_r, v4df z_i)
 	return (z_r * z_r - z_i * z_i + c_r);
 }
 
-int	ft_calcul_j(t_win *win)
+int	ft_calcul_j(t_win *win, int coord)
 {
 	
 	int		i;
@@ -37,8 +37,8 @@ int	ft_calcul_j(t_win *win)
 	v4df	tmp;
 
 	i = 0;
-	z_r[0] = 0;
-	z_i[0] = 0;
+	z_r = (coord / 1000) / win->zoom + win->x;
+	z_i = win->y - (coord % 1000) / win->zoom;
 	while (i < win->iteration_max)
 	{
 		tmp = z_r;

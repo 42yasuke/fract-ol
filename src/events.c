@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 19:01:55 by jose              #+#    #+#             */
-/*   Updated: 2023/04/10 02:21:04 by jose             ###   ########.fr       */
+/*   Updated: 2023/04/17 00:49:53 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,12 @@ int	ft_event_manager(int keycode, t_win *win)
 	else if (keycode == KEY_C)
 		win->use_colors = !win->use_colors;
 	else if (keycode == KEY_I)
-		if (win->fract == 'm')
-			ft_mandelbrot(win);
+		ft_mandelbrot(win);
 	return (ft_lstclear(&win->lst_str, &free), ft_win_lst_str(win), EXIT_SUCCESS);
 }
 
 int	ft_event_manager2(int button, int x, int y, t_win *win)
 {
-	(void)x;
-	(void)y;
 	if (button == ON_MOUSEDOWN)
 		(ft_zoom(win, x, y));
 	else if (button == ON_MOUSEUP)

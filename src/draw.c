@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:35:59 by jose              #+#    #+#             */
-/*   Updated: 2023/04/15 11:58:29 by jose             ###   ########.fr       */
+/*   Updated: 2023/04/17 00:18:58 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	ft_draw_pixel(t_win *win, int coord)
 	if (win->fract == 'm')
 		i_pix = ft_calcul_m(win, coord);
 	else if (win->fract == 'j')
-		i_pix = ft_calcul_j(win);
+		i_pix = ft_calcul_j(win, coord);
 	if (i_pix == win->iteration_max)
 		color = BLACK;
 	else if (!win->use_colors)

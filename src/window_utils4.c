@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 12:46:44 by jose              #+#    #+#             */
-/*   Updated: 2023/04/15 11:21:39 by jose             ###   ########.fr       */
+/*   Updated: 2023/04/16 22:21:58 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int	ft_good_nbr(char *nbr_str)
 	i = 0;
 	str = ft_strchr(nbr_str, '.');
 	if (str)
-		nbr_after_dot = ft_strlen(nbr_str);
+		nbr_after_dot = ft_strlen(str) - 1;
 	while (nbr_str[i])
 	{
 		if (nbr_str[i] == '.')
@@ -57,7 +57,7 @@ static int	ft_good_nbr(char *nbr_str)
 	}
 	if (!nbr_before_dot)
 		return (false);
-	return ((nbr_before_dot < 2) && (nbr_after_dot - 1 < 10));
+	return ((nbr_before_dot < 2) && (nbr_after_dot < 10));
 }
 
 int	ft_good_nbr_str(char *nbr_str)
@@ -71,7 +71,7 @@ int	ft_good_nbr_str(char *nbr_str)
 	{
 		if (!ft_isdigit(nbr_str[i]))
 		{
-			if (nbr_str[i] != '-' || nbr_str[i] != '.')
+			if (nbr_str[i] != '-' && nbr_str[i] != '.')
 				return (false);
 			else if (nbr_str[i] == '-' && i != 0)
 				return (false);

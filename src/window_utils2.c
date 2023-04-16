@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 21:56:21 by jose              #+#    #+#             */
-/*   Updated: 2023/04/15 11:02:14 by jose             ###   ########.fr       */
+/*   Updated: 2023/04/17 00:33:16 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ static double	ft_give_nbr_after_dot(char *nbr_str)
 	if (str)
 		str++;
 	res = (double)ft_atoi(str);
-	while (str)
+	while (*str)
 	{
-		res /= 10;
+		res /= 10.0;
 		str++;
 	}
 	return (res);

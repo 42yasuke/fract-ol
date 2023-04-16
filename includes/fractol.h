@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:47:34 by jose              #+#    #+#             */
-/*   Updated: 2023/04/15 11:58:20 by jose             ###   ########.fr       */
+/*   Updated: 2023/04/17 00:19:14 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,7 +148,7 @@ int		ft_bgr_into_int(int b, int g, int r);
 int		ft_calcul_m(t_win *win, int coord);
 
 /*	julia.c	*/
-int		ft_calcul_j(t_win *win);
+int		ft_calcul_j(t_win *win, int coord);
 
 /*	free.c	*/
 void	ft_free_window(t_win *window);
