@@ -6,7 +6,7 @@
 /*   By: jralph <jralph@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:56:02 by jose              #+#    #+#             */
-/*   Updated: 2023/04/17 13:09:38 by jralph           ###   ########.fr       */
+/*   Updated: 2023/04/17 13:29:07 by jralph           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	ft_usage(void)
 	ft_printf("burning_ship --> ./fractol b\n");
 }
 
-void	ft_error(int err, char *msg_err)
+void	ft_error(t_win *win, int err, char *msg_err)
 {
 	if (err == BAD_PARAMETERS)
 		(ft_printf("Error : %s\n", msg_err), ft_usage());
@@ -34,5 +34,13 @@ void	ft_error(int err, char *msg_err)
 		ft_printf("Error : %s\n", msg_err);
 	else if (err == MALLOC_FAILED)
 		ft_printf("Error : %s\n", msg_err);
+	else if (err == MLX_IMG_FAILED) 
+		ft_printf("Error : %s\n", msg_err);
+	if (win)
+	{
+		if (win->mlx)
+			mlx_destroy_display(win->mlx);
+		(free(win->mlx), free(win));
+	}
 	exit(EXIT_FAILURE);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jralph <jralph@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:47:34 by jose              #+#    #+#             */
-/*   Updated: 2023/04/17 02:06:58 by jose             ###   ########.fr       */
+/*   Updated: 2023/04/17 13:22:33 by jralph           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@
 # define MLX_INIT_FAILED 1
 # define MLX_WIN_FAILED 2
 # define MALLOC_FAILED 3
+# define MLX_IMG_FAILED 4
 
 /*	keybord's macro	*/
 # define KEY_ESC 65307
@@ -113,7 +114,7 @@ void	ft_win_colors(t_win *win);
 int		ft_good_nbr_str(char *nbr_str);
 
 /*	error.c	*/
-void	ft_error(int err, char *msg_err);
+void	ft_error(t_win *win, int err, char *msg_err);
 
 /*	events.c	*/
 int		ft_close_win(t_win *window);

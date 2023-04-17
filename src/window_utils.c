@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jralph <jralph@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 13:38:15 by jose              #+#    #+#             */
-/*   Updated: 2023/03/29 20:47:51 by jose             ###   ########.fr       */
+/*   Updated: 2023/04/17 13:25:02 by jralph           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,19 +74,19 @@ void	ft_win_lst_str(t_win *win)
 
 	tmp = ft_dtoa(win->x[0]);
 	if (!tmp)
-		(ft_free_window(win), ft_error(MALLOC_FAILED, "malloc failed"));
+		(ft_free_window(win), ft_error(win, MALLOC_FAILED, "malloc failed"));
 	tmp2 = tmp;
 	tmp = ft_strjoin("x ", tmp);
 	if (!tmp)
-		(ft_free_window(win), ft_error(MALLOC_FAILED, "malloc failed"));
+		(ft_free_window(win), ft_error(win, MALLOC_FAILED, "malloc failed"));
 	(win->lst_str = ft_lstnew(tmp), free(tmp2));
 	tmp = ft_dtoa(win->y[0]);
 	if (!tmp)
-		(ft_free_window(win), ft_error(MALLOC_FAILED, "malloc failed"));
+		(ft_free_window(win), ft_error(win, MALLOC_FAILED, "malloc failed"));
 	tmp2 = tmp;
 	tmp = ft_strjoin("y ", tmp);
 	if (!tmp)
-		(ft_free_window(win), ft_error(MALLOC_FAILED, "malloc failed"));
+		(ft_free_window(win), ft_error(win, MALLOC_FAILED, "malloc failed"));
 	(ft_lstadd_back(&win->lst_str, ft_lstnew(tmp)), free(tmp2));
 	ft_win_lst_str_suite(win);
 }
@@ -98,18 +98,18 @@ void	ft_win_lst_str_suite(t_win *win)
 
 	tmp = ft_dtoa(win->zoom[0]);
 	if (!tmp)
-		(ft_free_window(win), ft_error(MALLOC_FAILED, "malloc failed"));
+		(ft_free_window(win), ft_error(win, MALLOC_FAILED, "malloc failed"));
 	tmp2 = tmp;
 	tmp = ft_strjoin("zoom ", tmp);
 	if (!tmp)
-		(ft_free_window(win), ft_error(MALLOC_FAILED, "malloc failed"));
+		(ft_free_window(win), ft_error(win, MALLOC_FAILED, "malloc failed"));
 	(ft_lstadd_back(&win->lst_str, ft_lstnew(tmp)), free(tmp2));
 	tmp = ft_itoa(win->iteration_max);
 	if (!tmp)
-		(ft_free_window(win), ft_error(MALLOC_FAILED, "malloc failed"));
+		(ft_free_window(win), ft_error(win, MALLOC_FAILED, "malloc failed"));
 	tmp2 = tmp;
 	tmp = ft_strjoin("i_max ", tmp);
 	if (!tmp)
-		(ft_free_window(win), ft_error(MALLOC_FAILED, "malloc failed"));
+		(ft_free_window(win), ft_error(win, MALLOC_FAILED, "malloc failed"));
 	(ft_lstadd_back(&win->lst_str, ft_lstnew(tmp)), free(tmp2));
 }
