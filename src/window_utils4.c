@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window_utils4.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jralph <jralph@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 12:46:44 by jose              #+#    #+#             */
-/*   Updated: 2023/04/16 22:21:58 by jose             ###   ########.fr       */
+/*   Updated: 2023/04/17 14:35:35 by jralph           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static int	ft_good_nbr(char *nbr_str)
 			nbr_before_dot++;
 		i++;
 	}
-	if (!nbr_before_dot)
+	if (!nbr_before_dot || (str && !nbr_after_dot))
 		return (false);
 	return ((nbr_before_dot < 2) && (nbr_after_dot < 10));
 }
