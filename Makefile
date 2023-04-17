@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jose <jose@student.42.fr>                  +#+  +:+       +#+         #
+#    By: jralph <jralph@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/14 17:43:43 by jose              #+#    #+#              #
-#    Updated: 2023/04/17 03:09:57 by jose             ###   ########.fr        #
+#    Updated: 2023/04/17 12:13:49 by jralph           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,8 @@ C_FILES =	events.c \
 			draw.c \
 			draw_utils.c \
 			mandelbrot.c \
-			julia.c
+			julia.c \
+			burning_ship.c
 
 C_FILES_BONUS = 
 

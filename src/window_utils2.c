@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window_utils2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jralph <jralph@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 21:56:21 by jose              #+#    #+#             */
-/*   Updated: 2023/04/17 02:06:08 by jose             ###   ########.fr       */
+/*   Updated: 2023/04/17 12:39:29 by jralph           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ static double	ft_give_nbr_after_dot(char *nbr_str)
 	double	res;
 
 	str = ft_strchr(nbr_str, '.');
-	if (str)
-		str++;
+	if (!str)
+		return (0);
+	str++;
 	res = (double)ft_atoi(str);
 	while (*str)
 	{

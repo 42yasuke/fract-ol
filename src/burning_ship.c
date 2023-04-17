@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   burning_ship.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jralph <jralph@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 01:48:42 by jose              #+#    #+#             */
-/*   Updated: 2023/04/17 03:01:41 by jose             ###   ########.fr       */
+/*   Updated: 2023/04/17 12:14:14 by jralph           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,18 @@ static v4df	ft_calcul_z_i(t_win *win, int coord, v4df z_r, v4df z_i)
 static v4df	ft_calcul_z_r(t_win *win, int coord, v4df z_r, v4df z_i)
 {
 	v4df	c_r;
+	v4df	a_zr;
+	v4df	a_zi;
 
 	c_r = (coord / 1000) / win->zoom + win->x;
+	if (z_i[0] < 0)
+		a_zi = - z_i;
+	else
+		a_zi = z_i;
+	if (z_r[0] < 0)
+		a_zr = - z_r;
+	else
+		a_zr = z_r;
 	return (z_r * z_r - z_i * z_i + c_r);
 }
 

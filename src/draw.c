@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jralph <jralph@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 14:35:59 by jose              #+#    #+#             */
-/*   Updated: 2023/04/17 00:18:58 by jose             ###   ########.fr       */
+/*   Updated: 2023/04/17 12:12:35 by jralph           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ static void	ft_draw_pixel(t_win *win, int coord)
 		i_pix = ft_calcul_m(win, coord);
 	else if (win->fract == 'j')
 		i_pix = ft_calcul_j(win, coord);
+	else
+		i_pix = ft_calcul_b(win, coord);
 	if (i_pix == win->iteration_max)
 		color = BLACK;
 	else if (!win->use_colors)
