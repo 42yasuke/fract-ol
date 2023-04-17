@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: jralph <jralph@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 19:01:55 by jose              #+#    #+#             */
-/*   Updated: 2023/04/17 00:49:53 by jose             ###   ########.fr       */
+/*   Updated: 2023/04/17 13:48:05 by jralph           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ int	ft_event_manager(int keycode, t_win *win)
 		win->use_colors = !win->use_colors;
 	else if (keycode == KEY_I)
 		ft_mandelbrot(win);
-	return (ft_lstclear(&win->lst_str, &free), ft_win_lst_str(win), EXIT_SUCCESS);
+	(ft_lstclear(&win->lst_str, &free), ft_win_lst_str(win));
+	return (EXIT_SUCCESS);
 }
 
 int	ft_event_manager2(int button, int x, int y, t_win *win)
@@ -46,5 +47,6 @@ int	ft_event_manager2(int button, int x, int y, t_win *win)
 		(ft_zoom(win, x, y));
 	else if (button == ON_MOUSEUP)
 		(ft_dezoom(win, x, y));
-	return (ft_lstclear(&win->lst_str, &free), ft_win_lst_str(win), EXIT_SUCCESS);
+	(ft_lstclear(&win->lst_str, &free), ft_win_lst_str(win));
+	return (EXIT_SUCCESS);
 }

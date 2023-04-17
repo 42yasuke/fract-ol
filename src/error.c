@@ -6,7 +6,7 @@
 /*   By: jralph <jralph@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:56:02 by jose              #+#    #+#             */
-/*   Updated: 2023/04/17 13:29:07 by jralph           ###   ########.fr       */
+/*   Updated: 2023/04/17 13:46:17 by jralph           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_error(t_win *win, int err, char *msg_err)
 		ft_printf("Error : %s\n", msg_err);
 	else if (err == MALLOC_FAILED)
 		ft_printf("Error : %s\n", msg_err);
-	else if (err == MLX_IMG_FAILED) 
+	else if (err == MLX_IMG_FAILED)
 		ft_printf("Error : %s\n", msg_err);
 	if (win)
 	{

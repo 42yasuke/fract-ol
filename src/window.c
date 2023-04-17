@@ -6,7 +6,7 @@
 /*   By: jralph <jralph@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 17:11:40 by jose              #+#    #+#             */
-/*   Updated: 2023/04/17 13:29:53 by jralph           ###   ########.fr       */
+/*   Updated: 2023/04/17 14:04:48 by jralph           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@ static void	ft_add_image(t_win *win)
 	win->img = malloc(sizeof(*(win->img)));
 	if (!win->img)
 		(ft_free_window(win), ft_error(win, MALLOC_FAILED, "malloc_img"));
-	win->img->img = mlx_xpm_file_to_image(win->mlx, "image/noir.xpm", &win->img->width, &win->img->height);
+	win->img->img = mlx_xpm_file_to_image(win->mlx, "image/noir.xpm", \
+	&win->img->width, &win->img->height);
 	if (!win->img->img)
 		(ft_free_window(win), ft_error(win, MLX_IMG_FAILED, "mlx_image"));
-	win->img->addr = mlx_get_data_addr(win->img->img, &win->img->bpp, &win->img->size_line, &win->img->endian);
+	win->img->addr = mlx_get_data_addr(win->img->img, &win->img->bpp, \
+	&win->img->size_line, &win->img->endian);
 }
 
 static void	ft_initial_all(t_win *win)

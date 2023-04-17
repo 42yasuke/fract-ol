@@ -6,7 +6,7 @@
 /*   By: jralph <jralph@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 13:38:15 by jose              #+#    #+#             */
-/*   Updated: 2023/04/17 13:25:02 by jralph           ###   ########.fr       */
+/*   Updated: 2023/04/17 14:07:33 by jralph           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	ft_div_by_ten(int nbr_div, int nbr)
 
 	i = nbr_div - 1;
 	res = nbr;
-	while(i > 0)
+	while (i > 0)
 	{
 		res %= 10;
 		i--;
@@ -54,14 +54,16 @@ static char	*ft_dtoa(double nbr)
 		return (NULL);
 	nbr = fabs(nbr);
 	tmp = str;
-	(str = ft_strjoin(str, "."), free(tmp));
+	str = ft_strjoin(str, ".");
+	free(tmp);
 	while (i < 5)
 	{
 		nbr *= 10;
 		res = ft_div_by_ten(ft_nbr_int((int)nbr), (int)nbr);
 		tmp = str;
 		tmp2 = ft_itoa(res);
-		(str = ft_strjoin(str, tmp2), free(tmp), free(tmp2));
+		str = ft_strjoin(str, tmp2);
+		(free(tmp), free(tmp2));
 		i++;
 	}
 	return (str);
@@ -79,7 +81,8 @@ void	ft_win_lst_str(t_win *win)
 	tmp = ft_strjoin("x ", tmp);
 	if (!tmp)
 		(ft_free_window(win), ft_error(win, MALLOC_FAILED, "malloc failed"));
-	(win->lst_str = ft_lstnew(tmp), free(tmp2));
+	win->lst_str = ft_lstnew(tmp);
+	free(tmp2);
 	tmp = ft_dtoa(win->y[0]);
 	if (!tmp)
 		(ft_free_window(win), ft_error(win, MALLOC_FAILED, "malloc failed"));

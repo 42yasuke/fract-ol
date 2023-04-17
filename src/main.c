@@ -6,19 +6,20 @@
 /*   By: jralph <jralph@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:50:52 by jose              #+#    #+#             */
-/*   Updated: 2023/04/17 13:24:09 by jralph           ###   ########.fr       */
+/*   Updated: 2023/04/17 14:03:14 by jralph           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static int	suite_main (t_win *win)
+static int	suite_main(t_win *win)
 {
 	mlx_loop_hook(win->mlx, &ft_draw_fractal, win);
 	mlx_hook(win->mlx_win, KeyPress, KeyPressMask, &ft_event_manager, win);
 	mlx_hook(win->mlx_win, ClientMessage, StructureNotifyMask, \
 	&ft_close_win, win);
-	mlx_hook(win->mlx_win, ButtonPress, ButtonPressMask, &ft_event_manager2, win);
+	mlx_hook(win->mlx_win, ButtonPress, ButtonPressMask, \
+	&ft_event_manager2, win);
 	mlx_loop(win->mlx);
 	mlx_destroy_display(win->mlx);
 	(free(win->mlx), free(win));

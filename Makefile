@@ -6,20 +6,21 @@
 #    By: jralph <jralph@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/14 17:43:43 by jose              #+#    #+#              #
-#    Updated: 2023/04/17 12:13:49 by jralph           ###   ########.fr        #
+#    Updated: 2023/04/17 13:58:21 by jralph           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 
-CFLAGS_OBJ = -Wall -Wextra -Werror -c -g
+CFLAGS_OBJ = -Wall -Wextra -Werror -c
 
 RM = rm -f
 
 C_FILES =	events.c \
-			events_utils.c \
+			zoom_utils.c \
+			zoom.c \
 			events_utils2.c \
 			events_utils3.c \
 			free.c \

@@ -6,7 +6,7 @@
 /*   By: jralph <jralph@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:47:34 by jose              #+#    #+#             */
-/*   Updated: 2023/04/17 13:22:33 by jralph           ###   ########.fr       */
+/*   Updated: 2023/04/17 13:56:27 by jralph           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@
 # define FPS 37
 # define ON_MOUSEDOWN 4
 # define ON_MOUSEUP 5
-# define CENTER_X WIN_W / 2
-# define CENTER_Y WIN_H / 2
+# define CENTER_X 300
+# define CENTER_Y 300
 # define DECA_PIXEL 2.5
 # define N_COLORS 1792
 
@@ -64,8 +64,7 @@
 # define KEY_DEZOOM 65453
 # define KEY_C 99
 
-typedef int		v4si __attribute__ ((vector_size (4)));
-typedef double	v4df __attribute__ ((vector_size (8)));
+typedef double	t_v4df __attribute__ ((vector_size (8)));
 
 typedef struct s_image
 {
@@ -82,17 +81,17 @@ typedef struct s_win
 {
 	void	*mlx;
 	void	*mlx_win;
-	v4df	x;
-	v4df	y;
-	v4df	zoom;
+	t_v4df	x;
+	t_v4df	y;
+	t_v4df	zoom;
 	int		iteration_max;
 	t_image	*img;
 	t_list	*lst_str;
 	char	fract;
 	int		*colors;
 	int		use_colors;
-	v4df	x_j;
-	v4df	y_j;
+	t_v4df	x_j;
+	t_v4df	y_j;
 }	t_win;
 
 /*	window.c	*/
@@ -121,14 +120,20 @@ int		ft_close_win(t_win *window);
 int		ft_event_manager(int keycode, t_win *win);
 int		ft_event_manager2(int button, int x, int y, t_win *win);
 
-/*	events_utils.c	*/
+/*	zoom.c	*/
 void	ft_zoom(t_win *win, int x, int y);
 void	ft_dezoom(t_win *win, int x, int y);
+
+/*	zoom_utils.c	*/
+void	ft_deca_g(t_win *win, t_v4df deca_x);
+void	ft_deca_d(t_win *win, t_v4df deca_x);
+void	ft_deca_h(t_win *win, t_v4df deca_x);
+void	ft_deca_b(t_win *win, t_v4df deca_x);
 
 /*	events_utils2.c	*/
 void	ft_go_right(t_win *win);
 void	ft_go_left(t_win *win);
-void 	ft_go_up(t_win *win);
+void	ft_go_up(t_win *win);
 void	ft_go_down(t_win *win);
 
 /*	events_utils3.c	*/
