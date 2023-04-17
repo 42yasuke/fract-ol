@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 17:11:40 by jose              #+#    #+#             */
-/*   Updated: 2023/04/15 11:52:14 by jose             ###   ########.fr       */
+/*   Updated: 2023/04/17 02:07:46 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ void	*ft_initial_window(char **av)
 		(ft_mandelbrot(win), win->fract = 'm');
 	else if (!ft_strncmp(av[1], "j", 1))
 		(ft_julia(win, av[2], av[3]), win->fract = 'j');
+	else if (!ft_strncmp(av[1], "b", 1))
+		(ft_burning_ship(win), win->fract = 'b');
 	(ft_add_image(win), ft_win_lst_str(win), ft_win_colors(win));
 	return (ft_draw_f(win), win);
 }

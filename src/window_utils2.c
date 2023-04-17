@@ -6,7 +6,7 @@
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 21:56:21 by jose              #+#    #+#             */
-/*   Updated: 2023/04/17 00:33:16 by jose             ###   ########.fr       */
+/*   Updated: 2023/04/17 02:06:08 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,9 @@ void	ft_julia(t_win *win, char *nbr_str1, char *nbr_str2)
 	ft_mandelbrot(win);
 	win->x_j[0] = (double)ft_atoi(nbr_str1) + ft_give_nbr_after_dot(nbr_str1);
 	win->y_j[0] = (double)ft_atoi(nbr_str2) + ft_give_nbr_after_dot(nbr_str2);
+}
+
+void	ft_burning_ship(t_win *win)
+{
+	ft_mandelbrot(win);
 }

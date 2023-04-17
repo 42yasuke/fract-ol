@@ -6,7 +6,7 @@
 #    By: jose <jose@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/14 17:43:43 by jose              #+#    #+#              #
-#    Updated: 2023/04/15 11:50:48 by jose             ###   ########.fr        #
+#    Updated: 2023/04/17 03:09:57 by jose             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,7 @@ CFLAGS_OBJ = -Wall -Wextra -Werror -c -g
 
 RM = rm -f
 
-C_FILES =	main.c \
-			events.c \
+C_FILES =	events.c \
 			events_utils.c \
 			events_utils2.c \
 			events_utils3.c \
@@ -35,11 +34,11 @@ C_FILES =	main.c \
 			mandelbrot.c \
 			julia.c
 
-C_FILES_BONUS = main.c
+C_FILES_BONUS = 
 
 SRC = $(addprefix src/, $(C_FILES))
 
-BONUS = $(addprefix bonus/, $(C_FILES_BONUS))
+BONUS = $(addprefix src/, $(C_FILES_BONUS))
 
 OBJ = $(SRC:.c=.o)
 
@@ -64,15 +63,21 @@ libmlx.a :
 %.o : %.c
 			$(CC) $(CFLAGS_OBJ) $< -o $@ $(INC)
 
-.mandatory : libft.a libmlx.a $(OBJ)
-			$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIB) $(MLBX)
+src/main.o : src/main.c
+			$(CC) $(CFLAGS_OBJ) $< -o $@ $(INC)
+
+src/main_bonus.o : src/main_bonus.c
+			$(CC) $(CFLAGS_OBJ) $< -o $@ $(INC)
+
+.mandatory : libft.a libmlx.a $(OBJ) src/main.o
+			$(CC) $(CFLAGS) $(OBJ) src/main.o -o $(NAME) $(LIB) $(MLBX)
 			touch $@
 			$(RM) .bonus
 
 $(NAME) : .mandatory
 
-.bonus : libft.a libmlx.a $(OBJ_BONUS)
-			$(CC) $(CFLAGS) $(OBJ_BONUS) -o $(NAME) $(LIB) $(MLBX)
+.bonus : libft.a libmlx.a $(OBJ) src/main_bonus.o
+			$(CC) $(CFLAGS) $(OBJ) src/main_bonus.o -o $(NAME) $(LIB) $(MLBX)
 			touch $@
 			$(RM) .mandatory
 

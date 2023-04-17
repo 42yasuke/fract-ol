@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   burning_ship.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jose <jose@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/15 11:40:22 by jose              #+#    #+#             */
-/*   Updated: 2023/04/17 02:03:43 by jose             ###   ########.fr       */
+/*   Created: 2023/04/17 01:48:42 by jose              #+#    #+#             */
+/*   Updated: 2023/04/17 03:01:41 by jose             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,19 @@
 static v4df	ft_calcul_z_i(t_win *win, int coord, v4df z_r, v4df z_i)
 {
 	v4df	c_i;
+	v4df	a_zr;
+	v4df	a_zi;
 
 	c_i = win->y - (coord % 1000) / win->zoom;
-	return (2 * z_i * z_r + c_i);
+	if (z_i[0] < 0)
+		a_zi = - z_i;
+	else
+		a_zi = z_i;
+	if (z_r[0] < 0)
+		a_zr = - z_r;
+	else
+		a_zr = z_r;
+	return (2 * a_zi * a_zr + c_i);
 }
 
 static v4df	ft_calcul_z_r(t_win *win, int coord, v4df z_r, v4df z_i)
@@ -28,7 +38,7 @@ static v4df	ft_calcul_z_r(t_win *win, int coord, v4df z_r, v4df z_i)
 	return (z_r * z_r - z_i * z_i + c_r);
 }
 
-int	ft_calcul_m(t_win *win, int coord)
+int	ft_calcul_b(t_win *win, int coord)
 {
 	
 	int		i;
